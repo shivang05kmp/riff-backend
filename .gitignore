@@ -1,0 +1,18 @@
+# IDE (IntelliJ IDEA)
+.idea/
+*.iml
+out/
+
+# Gradle and Kotlin
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.kotlin/
+HELP.md
+
+# Secrets (never commit these)
+.env
+*.env.local
+
+# macOS
+.DS_Store
