@@ -15,6 +15,16 @@ Template:
 
 ---
 
+## 2026-11-24: Prep 1 — Terminal and Git
+
+**Did:** made an SSH key for GitHub (ed25519, in `~/.ssh/id_ed25519`). Installed `gh` and `jq` with Homebrew, then logged in with `gh auth login` over SSH. Started the `docs/git-workflow` branch with `docs/git-workflow.md` and a PR template (`.github/pull_request_template.md`).
+**Learned:**
+- PATH: when I type `java`, zsh runs the first `java` it finds in the folders listed in PATH. `export X=1` only lasts for that terminal tab; `~/.zshrc` makes it stick.
+- SSH key pair: the private key stays on my Mac, the public key (`.pub`) goes to GitHub. Like app signing: the keystore stays secret, only the certificate is shared. ed25519 is GitHub's recommended key type (shorter and faster than RSA).
+- A PR template pre-fills every PR description, so each PR answers What / Why / How I tested.
+**Stuck on:** `ssh-add ~/.ssh/id_ed25519` said "No such file". I had made an RSA key (`id_rsa`) instead, so the ed25519 file never existed. Fixed it by running `ssh-keygen -t ed25519` and pressing Enter at the file prompt. Then `gh` was "command not found", because I'd skipped it in Setup. Fixed it with `brew install gh jq`.
+**Next:** finish Prep 1. Find and kill whatever holds port 8080 with `lsof` + `kill`, protect `main` with a ruleset, then open, squash-merge and pull my first PR.
+
 ## 2026-11-23: Setup (restart)
 
 **Did:** installed Homebrew and Homebrew's bash 5.3. Installed SDKMAN and Temurin JDK 25.0.5.1 (checked with `java -version` and `sdk current java`).
